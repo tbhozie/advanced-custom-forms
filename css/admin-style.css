@@ -1,0 +1,88 @@
+.form-data {
+  display: none;
+}
+.form-data .postbox {
+  padding: 20px;
+  position: relative;
+}
+.form-data .postbox .close {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  color: #333;
+  font-size: 32px;
+  transform: rotate(45deg);
+  cursor: pointer;
+}
+.form-data .postbox h2 {
+  margin: 0 0 30px 0;
+}
+.form-data .postbox h4 {
+  margin: 0 0 0 0;
+}
+.form-data .postbox p {
+  margin: 0 0 30px 0;
+}
+.form-data .postbox p:last-child {
+  margin: 0;
+}
+.entries .filters {
+  margin: 0 0 10px 0;
+  position: relative;
+}
+.entries .filters span.label {
+  margin-right: 5px;
+  font-size: 14px;
+  font-weight: bold;
+}
+.entries h1 {
+  margin: 0 0 30px 0;
+}
+.entries table {
+  border: 1px solid #cecece;
+}
+.entries table tr th {
+  font-size: 12px;
+  padding: 8px 10px;
+  color: #32373c;
+  width: auto;
+  color: #555;
+  background-color: #fff;
+  font-weight: 600;
+  text-align: left;
+}
+.entries table .entry td {
+  padding: 12px 10px;
+  background-color: #fff;
+  border-top: 1px solid #cccaca;
+  border-bottom: 1px solid #cccaca;
+  cursor: pointer;
+  transition: 0.25s;
+}
+.entries table .entry:hover {
+  box-shadow: 0 0 10px #999;
+}
+.entries table .entry:hover td {
+  border-top: 1px solid #999;
+  border-bottom: 1px solid #999;
+}
+.entries table .entry:nth-child(even) td {
+  background-color: #eeeeee;
+}
+.entries .tablenav .tablenav-pages {
+  float: left;
+}
+.entries .tablenav .tablenav-pages .page-numbers {
+  border: 1px solid #999;
+  padding: 5px 10px;
+}
+.export {
+  position: absolute;
+  right: 0;
+  top: 0;
+  text-decoration: none;
+}
+.export a  {
+  text-decoration: none;
+  color: #000;
+}
