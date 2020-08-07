@@ -4,7 +4,7 @@
  * Plugin Name: Advanced Custom Forms
  * Description: Create forms easily with Advanced Custom Fields. Plugin requires Advanced Custom Fields PRO to be installed.
  * Author: Tyler Hozie
- * Version: 1.1.0
+ * Version: 1.1.1
  */
 
 // Include our updater file
