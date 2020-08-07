@@ -4,7 +4,23 @@
  * Plugin Name: Advanced Custom Forms
  * Description: Create forms easily with Advanced Custom Fields. Plugin requires Advanced Custom Fields PRO to be installed.
  * Author: Tyler Hozie
+ * Version: 1.0
  */
+
+
+function advanced_custom_forms_notice() {
+	?>
+	<div class="error">
+		<p>
+			<?php
+			_e(
+				'Advanced Custom Fields PRO plugin is required for Advanced Custom Forms to work.'
+			);
+			?>
+		</p>
+	</div>
+	<?php
+}
 
 
 // Install / Add Table for Entries
@@ -19,9 +35,9 @@ function advanced_custom_forms_install() {
 		id mediumint(9) NOT NULL AUTO_INCREMENT,
 		time text NOT NULL,
 		name tinytext NOT NULL,
-    email text NOT NULL,
+		email text NOT NULL,
 		form text NOT NULL,
-    data longtext NULL,
+		data longtext NULL,
 		PRIMARY KEY  (id)
 	) $charset_collate;";
 
@@ -84,7 +100,11 @@ function advanced_custom_forms_post_type() {
 	register_post_type( 'advanced_custom_form', $args );
 
 }
-add_action( 'init', 'advanced_custom_forms_post_type', 0 );
+if ( ! defined( 'ACF' ) ) {
+	add_action( 'admin_notices','advanced_custom_forms_notice');
+} else {
+	add_action( 'init', 'advanced_custom_forms_post_type', 0 );
+}
 
 // Add Metabox to Forms for shortcode display
 function advanced_custom_forms_shortcode_display() {
