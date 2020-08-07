@@ -261,7 +261,7 @@ function advanced_custom_forms_styles_scripts() {
 }
 
 function advanced_custom_forms_frontend() {
-	wp_enqueue_script( 'advanced-custom-form-frontend-script', plugins_url( '/js/frontend.js', __FILE__ ), $deps, $ver, true );
+	wp_enqueue_script( 'advanced-custom-form-frontend-script', plugins_url( '/js/frontend.js', __FILE__ ), array('jquery'), $ver, true );
 }
 
 function advanced_custom_forms_download_field( $field ) {
