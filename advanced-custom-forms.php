@@ -7,6 +7,20 @@
  * Version: 1.1.1
  */
 
+
+add_filter('acf/settings/save_json', 'advanced_custom_forms_save_point');
+function advanced_custom_forms_save_point( $path ) {
+    $path = plugin_dir_path(__FILE__) . 'acf-json';
+    return $path;
+}
+
+add_filter('acf/settings/load_json', 'advanced_custom_forms_load_point');
+function advanced_custom_forms_load_point( $paths ) {
+    unset($paths[0]);
+    $paths[] = plugin_dir_path(__FILE__) . 'acf-json';
+    return $paths;
+}
+
 // Include our updater file
 include_once( plugin_dir_path( __FILE__ ) . 'update.php');
 

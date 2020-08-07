@@ -22,7 +22,11 @@ function advanced_custom_forms_export_form() {
         while ( have_rows('fields') ) : the_row();
         $name = get_sub_field('name');
         $fieldName = str_replace(' ', '-', strtolower($name));
-        $headers[] = $fieldName;?><?php endwhile;
+        if(!empty($name)) {
+          $headers[] = $fieldName;
+        }
+        ?>
+        <?php endwhile;
       endif;
     endwhile;
   endif;
@@ -33,20 +37,25 @@ function advanced_custom_forms_export_form() {
 
 	fputcsv($fp, $headers);
 
-	foreach($results as $result) {
-
-    $paragraphs =  explode('</p>', $result->data);
+  foreach($results as $result) {
+    
     $dataFields = array();
+    $paragraphs =  explode('</p>', $result->data);
+    $dataFields[] = $result->id;
+    $dataFields[] = $result->time;
+    $dataFields[] = $result->name;
+    $dataFields[] = $result->email;
+    $dataFields[] = $result->form;
     foreach($paragraphs as $paragraph) {
       $paragraph = preg_replace("'<h4>(.*?)</h4>'", '', $paragraph);
       $paragraph = strip_tags($paragraph);
       $paragraph = trim($paragraph);
-      $dataFields[] = $paragraph;
+      $dataFields[] = ''.$paragraph.'';
     }
-    $data = implode(",", $dataFields);
 
-	  fputcsv($fp, array($result->id,$result->time,$result->name,$result->email,$result->form,$data));
-	}
+    fputcsv($fp, $dataFields);
+
+  }
 
 	fclose($fp);
 }
